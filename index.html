@@ -88,10 +88,10 @@
       const en = document.getElementById("en");
       const pt = document.getElementById("pt");
 
-      if (!en || !pt) return; // evita quebra silenciosa
+      if (!en || !pt) return;
 
-      en.style.display = lang === "en" ? "block" : "none";
-      pt.style.display = lang === "pt" ? "block" : "none";
+      en.classList.toggle("active", lang === "en");
+      pt.classList.toggle("active", lang === "pt");
 
       window.scrollTo(0, 0);
     }
