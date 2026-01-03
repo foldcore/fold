@@ -79,6 +79,22 @@
     .lang.active {
       display: block;
     }
+
+    .lang-toggle {
+      background: none;
+      border: 1px solid #666;
+      color: #ccc;
+      font-family: inherit;
+      font-size: 12px;
+      padding: 4px 8px;
+      margin: 0 4px;
+      cursor: pointer;
+    }
+
+    .lang-toggle:hover {
+      border-color: #aaa;
+      color: #fff;
+    }
   </style>
 
   <script>
@@ -97,10 +113,9 @@
 
   setLanguage('en');
 
-  document.querySelectorAll('[data-lang]').forEach(btn => {
+  document.querySelectorAll('.lang-toggle').forEach(btn => {
     btn.addEventListener('click', () => {
-      const lang = btn.dataset.lang;
-      setLanguage(lang);
+      setLanguage(btn.dataset.lang);
     });
   });
   </script>
@@ -165,9 +180,10 @@
     </div>
 
     <footer>
-      <button type="button" data-lang="en">EN</button>
-      <button type="button" data-lang="pt">PT</button>
+      <button class="lang-toggle" data-lang="en">EN</button>
+      <button class="lang-toggle" data-lang="pt">PT</button>
     </footer>
   </div>
+  <script defer src="script.js"></script>
 </body>
 </html>
