@@ -31,8 +31,12 @@
 
     .container {
       max-width: 520px;
-      padding: 32px 24px;
+      padding: 32px 0;
       text-align: center;
+    }
+
+    .content {
+      padding: 0 24px;
     }
 
     img {
@@ -95,18 +99,18 @@
       border-top: 1px solid #222;
     }
 
-    footer {
-      margin-top: 32px;
-      font-size: 0.85rem;
-      opacity: 0.7;
-    }
-
     .lang {
       display: none;
     }
 
     .lang.active {
       display: block;
+    }
+
+    footer {
+      margin-top: 32px;
+      font-size: 0.85rem;
+      opacity: 0.7;
     }
 
     .lang-toggle {
@@ -126,22 +130,14 @@
     }
 
     .donation-note {
-      width: 100%;
       max-width: var(--canonical-width);
-      margin-left: auto;
-      margin-right: auto;
-
+      margin: 0 auto 12px;
       text-align: center;
-      box-sizing: border-box;
     }
 
     .donation-block {
-      margin-bottom: 14px;
-
       max-width: var(--canonical-width);
-      margin-left: auto;
-      margin-right: auto;
-
+      margin: 0 auto 14px;
       text-align: center;
     }
 
@@ -167,7 +163,11 @@
       }
 
       .container {
-        padding: 28px 18px;
+        padding: 28px 0;
+      }
+
+      .content {
+        padding: 0 18px;
       }
 
       img {
@@ -198,11 +198,14 @@
       .donation-block code {
         font-size: 12px;
         padding: 6px;
-        max-width: 100%;
       }
 
       footer {
         margin-top: 28px;
+      }
+
+      .donation-divider {
+        margin: 28px auto 22px;
       }
     }
 
@@ -223,124 +226,111 @@
 
 <body>
   <div class="container">
-    <img src="assets/fold-32.svg" alt="Fold logo" />
+    <div class="content">
+      <img src="assets/fold-32.svg" alt="Fold logo" />
 
-    <div id="en" class="lang active">
-      <h1>Fold (FLD)</h1>
+      <div id="en" class="lang active">
+        <h1>Fold (FLD)</h1>
 
-      <p class="lead">
-        A fixed-supply ERC-20 token deployed on Base.
-      </p>
-      <p class="sublead">
-        No burning, pausability, or proxy.
-      </p>
+        <p class="lead">A fixed-supply ERC-20 token deployed on Base.</p>
+        <p class="sublead">No burning, pausability, or proxy.</p>
 
-      <div class="section">
-        <p><strong>Supply</strong></p>
-        <p>Total supply: 10,000,000 FLD</p>
-        <p>Personal allocation: 100,000 FLD</p>
-        <p>Reserve allocation: 9,900,000 FLD</p>
-      </div>
-
-      <div class="section">
-        <p><strong>Contract</strong></p>
-        <p class="mono">
-          0x978c336e1b753a0f0907910fd22066ab8deb1870
-        </p>
-      </div>
-
-      <div class="section">
-        <p><strong>Contact</strong></p>
-        <p class="mono">fold.core@proton.me</p>
-      </div>
-
-      <div class="donation-divider">
-      <hr>
-      </div>
-
-      <div class="section">
-        <p class="donation-note">
-          If this guide has been useful, donations are welcome.
-        </p>
-
-        <div class="donation-block">
-          <strong>Ethereum (ETH)</strong>
-          <code>0x89feb8205ba32d16367586431de8a97ea03bb73e</code>
+        <div class="section">
+          <p><strong>Supply</strong></p>
+          <p>Total supply: 10,000,000 FLD</p>
+          <p>Personal allocation: 100,000 FLD</p>
+          <p>Reserve allocation: 9,900,000 FLD</p>
         </div>
 
-        <div class="donation-block">
-          <strong>Bitcoin (BTC)</strong>
-          <code>bc1q4plngrpq0d9dccgp9qn4070f0fme6eerdl5qna</code>
+        <div class="section">
+          <p><strong>Contract</strong></p>
+          <p class="mono">0x978c336e1b753a0f0907910fd22066ab8deb1870</p>
+        </div>
+
+        <div class="section">
+          <p><strong>Contact</strong></p>
+          <p class="mono">fold.core@proton.me</p>
+        </div>
+
+        <div class="donation-divider"><hr></div>
+
+        <div class="section">
+          <p class="donation-note">
+            If this guide has been useful, donations are welcome.
+          </p>
+
+          <div class="donation-block">
+            <strong>Ethereum (ETH)</strong>
+            <code>0x89feb8205ba32d16367586431de8a97ea03bb73e</code>
+          </div>
+
+          <div class="donation-block">
+            <strong>Bitcoin (BTC)</strong>
+            <code>bc1q4plngrpq0d9dccgp9qn4070f0fme6eerdl5qna</code>
+          </div>
         </div>
       </div>
+
+      <div id="pt" class="lang">
+        <h1>Fold (FLD)</h1>
+
+        <p class="lead">
+          Um token ERC-20 de emissão fixa implantado na rede Base.
+        </p>
+        <p class="sublead">
+          Sem queima, pausabilidade ou contrato intermediário.
+        </p>
+
+        <div class="section">
+          <p><strong>Emissão</strong></p>
+          <p>Emissão total: 10.000.000 FLD</p>
+          <p>Alocação pessoal: 100.000 FLD</p>
+          <p>Alocação de reserva: 9.900.000 FLD</p>
+        </div>
+
+        <div class="section">
+          <p><strong>Contrato</strong></p>
+          <p class="mono">0x978c336e1b753a0f0907910fd22066ab8deb1870</p>
+        </div>
+
+        <div class="section">
+          <p><strong>Contato</strong></p>
+          <p class="mono">fold.core@proton.me</p>
+        </div>
+
+        <div class="donation-divider"><hr></div>
+
+        <div class="section">
+          <p class="donation-note">
+            Caso este guia tenha sido útil, doações são bem-vindas.
+          </p>
+
+          <div class="donation-block">
+            <strong>Ethereum (ETH)</strong>
+            <code>0x89feb8205ba32d16367586431de8a97ea03bb73e</code>
+          </div>
+
+          <div class="donation-block">
+            <strong>Bitcoin (BTC)</strong>
+            <code>bc1q4plngrpq0d9dccgp9qn4070f0fme6eerdl5qna</code>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <button class="lang-toggle" data-lang="en">EN</button>
+        <button class="lang-toggle" data-lang="pt">PT</button>
+      </footer>
     </div>
-
-    <div id="pt" class="lang">
-      <h1>Fold (FLD)</h1>
-
-      <p class="lead">
-        Um token ERC-20 de emissão fixa implantado na rede Base.
-      </p>
-      <p class="sublead">
-        Sem queima, pausabilidade ou contrato intermediário.
-      </p>
-
-      <div class="section">
-        <p><strong>Emissão</strong></p>
-        <p>Emissão total: 10.000.000 FLD</p>
-        <p>Alocação pessoal: 100.000 FLD</p>
-        <p>Alocação de reserva: 9.900.000 FLD</p>
-      </div>
-
-      <div class="section">
-        <p><strong>Contrato</strong></p>
-        <p class="mono">
-          0x978c336e1b753a0f0907910fd22066ab8deb1870
-        </p>
-      </div>
-
-      <div class="section">
-        <p><strong>Contato</strong></p>
-        <p class="mono">fold.core@proton.me</p>
-      </div>
-
-      <div class="donation-divider">
-      <hr>
-      </div>
-        
-      <div class="section">
-        <p class="donation-note">
-          Caso este guia tenha sido útil, doações são bem-vindas.
-        </p>
-
-        <div class="donation-block">
-          <strong>Ethereum (ETH)</strong>
-          <code>0x89feb8205ba32d16367586431de8a97ea03bb73e</code>
-        </div>
-
-        <div class="donation-block">
-          <strong>Bitcoin (BTC)</strong>
-          <code>bc1q4plngrpq0d9dccgp9qn4070f0fme6eerdl5qna</code>
-        </div>
-      </div>
-    </div>
-
-    <footer>
-      <button class="lang-toggle" data-lang="en">EN</button>
-      <button class="lang-toggle" data-lang="pt">PT</button>
-    </footer>
   </div>
 
   <script>
     function setLanguage(lang) {
-      document.querySelectorAll('.lang').forEach(el => {
-        el.classList.remove('active');
-      });
-
+      document.querySelectorAll('.lang').forEach(el =>
+        el.classList.remove('active')
+      );
       const target = document.getElementById(lang);
-      if (target) {
-        target.classList.add('active');
-      }
+      if (target) target.classList.add('active');
     }
 
     setLanguage('en');
