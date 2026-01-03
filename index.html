@@ -11,7 +11,7 @@
     }
 
     :root {
-      --canonical-width: 480px;
+      --canonical-width: 440px;
     }
 
     html, body {
@@ -50,6 +50,23 @@
       margin: 8px 0;
       line-height: 1.55;
       font-size: 0.95rem;
+    }
+
+    .lead,
+    .sublead {
+      max-width: var(--canonical-width);
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+    }
+
+    .lead {
+      font-size: 0.95rem;
+    }
+
+    .sublead {
+      font-size: 0.9rem;
+      opacity: 0.85;
     }
 
     .section {
@@ -124,7 +141,7 @@
       max-width: var(--canonical-width);
       margin-left: auto;
       margin-right: auto;
-      
+
       box-sizing: border-box;
       word-break: break-all;
 
@@ -133,7 +150,7 @@
 
       background: #0b0b0b;
       border-radius: 4px;
-      
+
       font-size: 13px;
     }
 
@@ -172,11 +189,13 @@
 
       .mono {
         font-size: 0.8rem;
+        max-width: 100%;
       }
 
       .donation-block code {
         font-size: 12px;
         padding: 6px;
+        max-width: 100%;
       }
 
       footer {
@@ -195,25 +214,6 @@
         font-variant-ligatures: none;
         letter-spacing: 0.01em;
       }
-
-      code {
-        -webkit-overflow-scrolling: touch;
-      }
-    }
-
-    @supports (-webkit-overflow-scrolling: touch) {
-      body {
-        overscroll-behavior-y: none;
-      }
-    }
-
-    @media (max-width: 480px) {
-      @supports (-webkit-touch-callout: none) {
-        .mono,
-        .donation-block code {
-          font-size: 0.78rem;
-        }
-      }
     }
   </style>
 </head>
@@ -225,8 +225,10 @@
     <div id="en" class="lang active">
       <h1>Fold (FLD)</h1>
 
-      <p>
+      <p class="lead">
         A fixed-supply ERC-20 token deployed on Base.
+      </p>
+      <p class="sublead">
         No burning, pausability, or proxy.
       </p>
 
@@ -271,8 +273,10 @@
     <div id="pt" class="lang">
       <h1>Fold (FLD)</h1>
 
-      <p>
+      <p class="lead">
         Um token ERC-20 de emissão fixa implantado na rede Base.
+      </p>
+      <p class="sublead">
         Sem queima, pausabilidade ou contrato intermediário.
       </p>
 
