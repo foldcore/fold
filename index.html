@@ -97,28 +97,6 @@
     }
   </style>
 
-  <script>
-    function setLanguage(lang) {
-      document.querySelectorAll('.lang').forEach(el => {
-        el.style.display = 'none';
-        el.classList.remove('active');
-    });
-
-    const target = document.getElementById(lang);
-    if (target) {
-      target.style.display = 'block';
-      target.classList.add('active');
-    }
-  }
-
-  setLanguage('en');
-
-  document.querySelectorAll('.lang-toggle').forEach(btn => {
-    btn.addEventListener('click', () => {
-      setLanguage(btn.dataset.lang);
-    });
-  });
-  </script>
 </head>
 
 <body>
@@ -184,6 +162,28 @@
       <button class="lang-toggle" data-lang="pt">PT</button>
     </footer>
   </div>
-  <script defer src="script.js"></script>
+
+    <script>
+      function setLanguage(lang) {
+        document.querySelectorAll('.lang').forEach(el => {
+          el.style.display = 'none';
+          el.classList.remove('active');
+        });
+
+        const target = document.getElementById(lang);
+        if (target) {
+          target.style.display = 'block';
+          target.classList.add('active');
+        }
+      }
+
+      setLanguage('en');
+
+      document.querySelectorAll('.lang-toggle').forEach(btn => {
+        btn.addEventListener('click', () => {
+          setLanguage(btn.dataset.lang);
+        });
+      });
+  </script>
 </body>
 </html>
