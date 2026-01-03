@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Fold (FLD)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: #000;
+      color: #fff;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 520px;
+      padding: 32px 24px;
+      text-align: center;
+    }
+
+    img {
+      width: 120px;
+      height: 120px;
+      margin-bottom: 32px;
+    }
+
+    h1 {
+      font-size: 1.8rem;
+      margin-bottom: 16px;
+    }
+
+    p {
+      margin: 10px 0;
+      line-height: 1.6;
+      font-size: 0.95rem;
+    }
+
+    .section {
+      margin-top: 28px;
+    }
+
+    .mono {
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 0.85rem;
+      word-break: break-all;
+      margin-top: 8px;
+    }
+
+    footer {
+      margin-top: 40px;
+      font-size: 0.85rem;
+      opacity: 0.7;
+    }
+
+    a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 6px;
+      cursor: pointer;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .lang {
+      display: none;
+    }
+
+    .lang.active {
+      display: block;
+    }
+  </style>
+
+  <script>
+    function setLanguage(lang) {
+      document.querySelectorAll('.lang').forEach(el => {
+        el.classList.remove('active');
+      });
+
+      const target = document.getElementById(lang);
+      if (target) target.classList.add('active');
+
+      window.scrollTo(0, 0);
+    }
+
+    window.onload = function () {
+      const hash = window.location.hash.replace('#', '');
+      if (hash === 'pt') {
+        setLanguage('pt');
+      } else {
+        setLanguage('en');
+      }
+    };
+
+    window.onbeforeunload = function () {
+      window.scrollTo(0, 0);
+    };
+  </script>
+</head>
+
+<body>
+  <div class="container">
+    <img src="assets/fold.svg" alt="Fold logo" />
+    
+    <div id="en" class="lang active">
+      <h1>Fold (FLD)</h1>
+
+      <p>
+        A fixed-supply ERC-20 token deployed on Base.
+      </p>
+
+      <div class="section">
+        <p><strong>Supply</strong></p>
+        <p>Total supply: 10,000,000 FLD</p>
+        <p>Personal allocation: 100,000 FLD</p>
+        <p>Reserve allocation: 9,900,000 FLD</p>
+      </div>
+
+      <div class="section">
+        <p><strong>Contract</strong></p>
+        <p class="mono">
+          0x978c336e1b753a0f0907910fd22066ab8deb1870
+        </p>
+      </div>
+
+      <div class="section">
+        <p><strong>Contact</strong></p>
+        <p class="mono">fold.core@proton.me</p>
+      </div>
+    </div>
+    
+    <div id="pt" class="lang">
+      <h1>Fold (FLD)</h1>
+
+      <p>
+        Um token ERC-20 de emissão fixa implantado na rede Base.
+      </p>
+
+      <div class="section">
+        <p><strong>Emissão</strong></p>
+        <p>Emissão total: 10.000.000 FLD</p>
+        <p>Alocação pessoal: 100.000 FLD</p>
+        <p>Alocação de reserva: 9.900.000 FLD</p>
+      </div>
+
+      <div class="section">
+        <p><strong>Contrato</strong></p>
+        <p class="mono">
+          0x978c336e1b753a0f0907910fd22066ab8deb1870
+        </p>
+      </div>
+
+      <div class="section">
+        <p><strong>Contato</strong></p>
+        <p class="mono">fold.core@proton.me</p>
+      </div>
+    </div>
+
+    <footer>
+      <a href="#en" onclick="setLanguage('en')">EN</a> |
+      <a href="#pt" onclick="setLanguage('pt')">PT</a>
+    </footer>
+  </div>
+</body>
+</html>
