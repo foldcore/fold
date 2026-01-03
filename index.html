@@ -84,11 +84,13 @@
       margin-right: auto;
     }
 
-    hr {
-      width: 100%;
+    .donation-divider {
       max-width: var(--canonical-width);
       margin: 32px auto 24px;
+    }
 
+    .donation-divider hr {
+      width: 100%;
       border: none;
       border-top: 1px solid #222;
     }
@@ -135,14 +137,17 @@
 
     .donation-block {
       margin-bottom: 14px;
+
+      max-width: var(--canonical-width);
+      margin-left: auto;
+      margin-right: auto;
+
+      text-align: center;
     }
 
     .donation-block code {
       display: block;
       width: 100%;
-      max-width: var(--canonical-width);
-      margin-left: auto;
-      margin-right: auto;
 
       box-sizing: border-box;
       word-break: break-all;
@@ -253,7 +258,9 @@
         <p class="mono">fold.core@proton.me</p>
       </div>
 
+    <div class="donation-divider">
       <hr>
+    </div>
 
       <div class="section">
         <p class="donation-note">
