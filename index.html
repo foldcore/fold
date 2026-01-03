@@ -95,14 +95,28 @@
     window.scrollTo(0, 0);
   }
 
-  
-  window.addEventListener("load", () => {
-    
-    if (window.location.hash) {
-      history.replaceState(null, "", window.location.pathname);
-    }
+    function setLanguage(lang) {
+      document.documentElement.lang = lang;
 
-    setLanguage("en");
+      document.getElementById("en").style.display =
+      lang === "en" ? "block" : "none";
+
+      document.getElementById("pt").style.display =
+      lang === "pt" ? "block" : "none";
+
+    window.scrollTo(0, 0);
+  }
+
+    function applyLanguageFromHash() {
+      if (window.location.hash === "#pt") {
+        setLanguage("pt");
+      } else {
+        setLanguage("en");
+      }
+  }
+
+window.addEventListener("DOMContentLoaded", applyLanguageFromHash);
+window.addEventListener("hashchange", applyLanguageFromHash);
   </script>
 </head>
 
