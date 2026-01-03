@@ -83,29 +83,26 @@
 
   <script>
     function setLanguage(lang) {
-      document.documentElement.lang = lang;
+      document.querySelectorAll('.lang').forEach(el => {
+        el.style.display = 'none';
+        el.classList.remove('active');
+    });
 
-      const en = document.getElementById("en");
-      const pt = document.getElementById("pt");
-
-      if (!en || !pt) return;
-
-      en.classList.toggle("active", lang === "en");
-      pt.classList.toggle("active", lang === "pt");
-
-      window.scrollTo(0, 0);
+    const target = document.getElementById(lang);
+    if (target) {
+      target.style.display = 'block';
+      target.classList.add('active');
     }
+  }
 
-    function applyLanguageFromHash() {
-      if (window.location.hash === "#pt") {
-        setLanguage("pt");
-      } else {
-        setLanguage("en");
-      }
-    }
+  setLanguage('en');
 
-      applyLanguageFromHash();
-      window.addEventListener("hashchange", applyLanguageFromHash);
+  document.querySelectorAll('[data-lang]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const lang = btn.dataset.lang;
+      setLanguage(lang);
+    });
+  });
   </script>
 </head>
 
