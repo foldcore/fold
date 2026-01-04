@@ -326,20 +326,56 @@
   </div>
 
   <script>
-    function setLanguage(lang) {
+    function setLanguage(lang, updateHash = true) {
       document.querySelectorAll('.lang').forEach(el =>
         el.classList.remove('active')
       );
+      
       const target = document.getElementById(lang);
       if (target) target.classList.add('active');
+
+      if (updateHash) {
+        if (lang === 'en') {
+          history.replaceState(null, '', window.location.pathname);
+        } else {
+          history.replaceState(null, '', '#' + lang);
+        }
+      }
     }
 
-    setLanguage('en');
+    function initLanguage(isReload) {
+      if (isReload) {
+        setLanguage('en', true);
+        return;
+      }
+
+      const hash = window.location.hash.replace('#', '');
+      if (hash === 'pt') {
+        setLanguage('pt', false);
+      } else {
+        setLanguage('en', false);
+      }
+    }
+
+    const navEntries = performance.getEntriesByType('navigation');
+    const isReload =
+      navEntries.length > 0 && navEntries[0].type === 'reload';
+
+    initLanguage(isReload);
 
     document.querySelectorAll('.lang-toggle').forEach(btn => {
       btn.addEventListener('click', () => {
         setLanguage(btn.dataset.lang);
       });
+    });
+
+    window.addEventListener('hashchange', () => {
+      const hash = window.location.hash.replace('#', '');
+      if (hash === 'pt') {
+        setLanguage('pt', false);
+      } else {
+        setLanguage('en', false);
+      }
     });
   </script>
 </body>
