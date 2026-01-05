@@ -326,57 +326,40 @@
   </div>
 
   <script>
-    function setLanguage(lang, updateHash = true) {
-      document.querySelectorAll('.lang').forEach(el =>
-        el.classList.remove('active')
-      );
-      
-      const target = document.getElementById(lang);
-      if (target) target.classList.add('active');
+    const toggle = document.getElementById("toggle");
+    const en = document.getElementById("en");
+    const pt = document.getElementById("pt");
+    const enFooter = document.getElementById("en-footer");
+    const ptFooter = document.getElementById("pt-footer");
 
-      if (updateHash) {
-        if (lang === 'en') {
-          history.replaceState(null, '', window.location.pathname);
-        } else {
-          history.replaceState(null, '', '#' + lang);
-        }
-      }
-    }
+    let current = "en";
 
-    function initLanguage(isReload) {
-      if (isReload) {
-        setLanguage('en', true);
-        return;
-      }
-
-      const hash = window.location.hash.replace('#', '');
-      if (hash === 'pt') {
-        setLanguage('pt', false);
+    function setLang(lang) {
+      if (lang === "pt") {
+        en.classList.remove("active");
+        enFooter.classList.remove("active");
+        pt.classList.add("active");
+        ptFooter.classList.add("active");
+        toggle.textContent = "EN";
+        current = "pt";
       } else {
-        setLanguage('en', false);
+        pt.classList.remove("active");
+        ptFooter.classList.remove("active");
+        en.classList.add("active");
+        enFooter.classList.add("active");
+        toggle.textContent = "PT";
+        current = "en";
       }
     }
 
-    const navEntries = performance.getEntriesByType('navigation');
-    const isReload =
-      navEntries.length > 0 && navEntries[0].type === 'reload';
-
-    initLanguage(isReload);
-
-    document.querySelectorAll('.lang-toggle').forEach(btn => {
-      btn.addEventListener('click', () => {
-        setLanguage(btn.dataset.lang);
-      });
+    toggle.addEventListener("click", () => {
+      setLang(current === "en" ? "pt" : "en");
     });
 
-    window.addEventListener('hashchange', () => {
-      const hash = window.location.hash.replace('#', '');
-      if (hash === 'pt') {
-        setLanguage('pt', false);
-      } else {
-        setLanguage('en', false);
-      }
+    window.addEventListener("load", () => {
+      setLang("en");
     });
   </script>
+  
 </body>
 </html>
