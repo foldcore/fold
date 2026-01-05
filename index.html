@@ -103,13 +103,15 @@
     }
 
     .lang-toggle {
+      align-self: flex-end;
+      margin-bottom: 16px;
+      
       background: none;
       border: 1px solid #666;
       color: #ccc;
       font-family: inherit;
       font-size: 12px;
       padding: 4px 8px;
-      margin: 0 4px;
       cursor: pointer;
     }
 
@@ -227,6 +229,8 @@
 
 <body>
   <div class="container">
+    <div class="lang-toggle" id="toggle">PT</div>
+    
     <div class="content">
       <img src="assets/fold-32.svg" alt="Fold logo" />
 
@@ -317,10 +321,15 @@
           </div>
         </div>
       </div>
+      
+      <div class="lang-toggle" id="toggle">PT</div>
 
-      <footer>
-        <button class="lang-toggle" data-lang="en">EN</button>
-        <button class="lang-toggle" data-lang="pt">PT</button>
+      <footer class="lang active" id="en-footer">
+        fold.core@proton.me
+      </footer>
+
+      <footer class="lang" id="pt-footer">
+        fold.core@proton.me
       </footer>
     </div>
   </div>
