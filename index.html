@@ -103,8 +103,9 @@
     }
 
     .lang-toggle {
-      align-self: flex-end;
-      margin-bottom: 16px;
+      position: fixed;
+      top: 16px;
+      right: 16px;
       
       background: none;
       border: 1px solid #666;
@@ -228,9 +229,9 @@
 </head>
 
 <body>
+  <div class="lang-toggle" id="toggle">PT</div>
+  
   <div class="container">
-    <div class="lang-toggle" id="toggle">PT</div>
-    
     <div class="content">
       <img src="assets/fold-32.svg" alt="Fold logo" />
 
